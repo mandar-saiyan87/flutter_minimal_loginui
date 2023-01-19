@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:minimal_loginui/widget/form_button.dart';
+import 'package:minimal_loginui/widget/login_inputs.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,37 +15,51 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 25),
-              // Hello again!
+              Icon(
+                Icons.android,
+                size: 70,
+              ),
+              // Greeting text
               Text(
                 "Hello Again!",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                style: GoogleFonts.bebasNeue(fontSize: 52),
               ),
               SizedBox(height: 10),
               Text(
                 "Welcome back, you've been missed!",
                 style: TextStyle(fontSize: 20),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      border: Border.all(color: Colors.white)),
-                  child: TextField(
-                    decoration: InputDecoration(border: InputBorder.none),
-                  ),
-                ),
-              )
+              SizedBox(height: 50),
               // email
-
+              LoginInput(hintText: "Email"),
+              SizedBox(height: 10),
               // password
-
+              LoginInput(
+                hintText: "Password",
+                obscureText: true,
+              ),
+              SizedBox(height: 15),
               // Sign In Button
-
+              FormButton(buttonText: 'Sign In'),
+              SizedBox(height: 25),
               // not a memeber? register now
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Not a member?',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    ' Register Now',
+                    style: TextStyle(
+                        color: Colors.deepPurple.shade400,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )
             ],
           ),
         ),
