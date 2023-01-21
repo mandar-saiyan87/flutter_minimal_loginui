@@ -1,12 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 
 class LoginInput extends StatelessWidget {
+  final controller;
   final String hintText;
   final bool obscureText;
   const LoginInput(
-      {super.key, required this.hintText, this.obscureText = false});
+      {super.key,
+      required this.hintText,
+      this.obscureText = false,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,7 @@ class LoginInput extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: TextField(
+            controller: controller,
             obscureText: obscureText,
             decoration:
                 InputDecoration(border: InputBorder.none, hintText: hintText),
